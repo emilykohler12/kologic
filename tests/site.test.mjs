@@ -361,7 +361,7 @@ test('LexSearch: las fases 5 y 6 se describen con lo que dice el README del proy
   const p = projects.find((x) => x.slug === 'lexsearch');
   const joined = p.features.join(' ');
   for (const w of ['carátula', 'juzgado', 'Próxima', 'Hoy', 'frase que las respalda', 'nada se guarda hasta que confirmás', 'de 2 a 8 documentos', 'enlace al original', 'copiás como resumen']) assert.ok(joined.includes(w), w);
-  assert.ok(!/fase 7|v[íi]gía normativo|Bolet[íi]n/i.test(JSON.stringify(p)), 'la fase 7 (en progreso) no se muestra');
+  assert.ok(!/anonimiz|hosting|Tailscale|probabilidad de [ée]xito/i.test(JSON.stringify(p)), 'la fase 10 (en curso) y los porcentajes no se muestran');
 });
 
 test('Portafolios: figuran como servicio y como proyecto de ejemplo (el de Emily), sin demo ni datos personales de contacto', () => {
@@ -407,10 +407,10 @@ test('LexSearch: solo lo ya hecho, sin demo ni repositorio, con alcance honesto 
   assert.ok(t.includes('Pedir una presentación en vivo') && !t.includes('Pedir acceso a la demo'));
   assert.match(src, /demo=pres#contacto/);
   assert.ok(src.includes('class="shot"') && !src.includes('(ilustrativa)') && p.images.length >= 1);
-  // Lo que está hecho (fases 0 a 6)
-  for (const w of ['por significado y por palabras exactas', 'se resalta la frase', 'OCR', 'carta documento', 'Fichas de cliente', 'nunca la IA', 'Expedientes con línea de tiempo', 'Importar actuaciones con IA', 'Detector de contradicciones', 'de 2 a 8 documentos', 'no es exhaustiva', 'Gemini']) assert.ok(t.includes(w), w);
-  // Lo que NO existe o no se terminó: no se menciona
-  assert.ok(!/Bolet[íi]n Oficial|v[íi]gilante normativo|vig[íi]a normativo|simulador de audiencia|probabilidad de [ée]xito|anonimiz|hosting|Tailscale/i.test(t), 'fase no terminada mencionada como hecha');
+  // Lo que está hecho (fases 0 a 9: según el README del proyecto, todas «Hecha»)
+  for (const w of ['por significado y por palabras exactas', 'se resalta la frase', 'OCR', 'carta documento', 'Fichas de cliente', 'nunca la IA', 'Expedientes con línea de tiempo', 'Importar actuaciones con IA', 'Detector de contradicciones', 'de 2 a 8 documentos', 'no es exhaustiva', 'Gemini', 'Boletín Oficial', 'Simulador de audiencia', 'Estimador de antecedentes', 'No da porcentajes']) assert.ok(t.includes(w), w);
+  // Lo que NO existe o no se terminó (fase 10: servidor y anonimización): no se menciona
+  assert.ok(!/probabilidad de [ée]xito|anonimiz|hosting|Tailscale/i.test(t), 'fase 10 (en curso) o porcentajes mencionados como hechos');
   // Promesas que el propio informe desaconseja
   assert.ok(!/siempre correct|reemplaz(a|o) (al|a la) (abogado|profesional)(?! )|información (legal )?actualizada|listo para producci[óo]n|multiusuario|escala a muchos/i.test(t.replace('no reemplaza al abogado', '')), 'promesa no respaldada');
   for (const w of ['prototipo', 'sin cuentas ni login', 'no reemplaza al abogado', 'No trae leyes incluidas']) assert.ok(t.includes(w), w);
@@ -418,13 +418,13 @@ test('LexSearch: solo lo ya hecho, sin demo ni repositorio, con alcance honesto 
   assert.ok(!/GEMINI_API_KEY|AQ\.A|lexsearch_dev|hotmail/i.test(src), 'datos internos del proyecto');
 });
 
-test('freddymotos (en producción): sitio y código reales, 8 capturas, sin cuenta de admin y sin promesas que el código no cumple', () => {
+test('freddymotos (en producción): sitio y código reales, 27 capturas, sin cuenta de admin y sin promesas que el código no cumple', () => {
   const p = projects.find((x) => x.slug === 'ecommerce-repuestos-motos');
   const src = html['proyectos/ecommerce-repuestos-motos.html'];
   assert.equal(p.demo, 'https://freddymotosweb.onrender.com/');
   assert.equal(p.repo, 'https://github.com/emilykohler12/freddymotos-web');
   assert.ok(src.includes(p.demo) && src.includes(p.repo) && src.includes('Ver la tienda en producción') && src.includes('En producción'));
-  assert.equal(p.images.length, 8);
+  assert.equal(p.images.length, 27);
   assert.ok(!p.demoAccount && !src.includes('class="account"'), 'la cuenta de admin de este proyecto no se publica');
   const t = text(src);
   for (const w of ['Mercado Pago', 'WhatsApp', 'llevá X, pagá Y', 'precio fijo según la zona', 'copia de seguridad semanal', 'Alcance actual', 'no incluye facturación electrónica']) assert.ok(t.includes(w), w);
