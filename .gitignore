@@ -1,0 +1,13 @@
+﻿node_modules/
+site/
+.claude/settings.local.json
+# Claves y secretos: nunca al repositorio
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Informe interno con datos personales y riesgos de sistemas de clientes: solo local (el repo es público)
+CRITICA.md
+# Videos de Syntri: pospuestos, se publican más adelante
+videos-pendientes-de-revisar/

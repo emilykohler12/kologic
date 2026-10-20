@@ -1,0 +1,16 @@
+{
+  "name": "kologic-web",
+  "version": "1.0.0",
+  "description": "Sitio institucional de Kologic",
+  "scripts": {
+    "assets": "node tools/make-assets.mjs",
+    "build": "node tools/build.mjs",
+    "start": "node tools/build.mjs && node tools/serve.mjs",
+    "test": "node tools/build.mjs && node --test \"tests/*.test.*\""
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  },
+  "private": true
+}

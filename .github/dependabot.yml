@@ -1,0 +1,11 @@
+# Avisa y abre pull requests cuando una dependencia o una acción de GitHub tiene una versión nueva o una vulnerabilidad.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
