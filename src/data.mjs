@@ -271,6 +271,10 @@ export const projects = [
       { src: 'assets/nexa/admin-horarios.webp', w: 1440, h: 900, alt: 'Configuración de los días y horarios de atención del negocio, con feriados', caption: 'Admin: horarios del negocio' },
     ],
     demo: 'https://lorenestudiodebelleza.vercel.app/',
+    repos: [
+      { label: 'frontend', text: 'Ver código del frontend', url: 'https://github.com/emilykohler12/nexa-frontend' },
+      { label: 'backend', text: 'Ver código del backend', url: 'https://github.com/emilykohler12/nexa-backend' },
+    ],
     video: null,
   },
   {

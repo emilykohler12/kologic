@@ -222,6 +222,7 @@ export function projectPage(p) {
       ${p.demoNote && (p.demo || p.presentation) ? `<p class="aside__note">${esc(p.demoNote)}</p>` : ''}
       ${p.demo && p.demoAccount ? `<dl class="account" aria-label="Cuenta de prueba"><div><dt>Usuario</dt><dd><code>${esc(p.demoAccount.user)}</code></dd></div><div><dt>Contraseña</dt><dd><code>${esc(p.demoAccount.pass)}</code></dd></div></dl>` : ''}
       ${p.repo ? `<a class="btn btn--outline" href="${esc(p.repo)}" target="_blank" rel="noopener noreferrer" data-track="Código: ${esc(p.slug)}">Ver código en GitHub</a>` : ''}
+      ${(p.repos || []).map((r) => `<a class="btn btn--outline" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer" data-track="Código ${esc(r.label)}: ${esc(p.slug)}">${esc(r.text)}</a>`).join('\n      ')}
       <a class="btn btn--primary" href="${ask}" data-track="Solicitar similar: ${esc(p.slug)}">${esc(p.askLabel || 'Solicitar un sistema similar')}</a>
       ${wa ? `<a class="btn btn--wa" href="${esc(wa)}" target="_blank" rel="noopener noreferrer" data-track="WhatsApp proyecto: ${esc(p.slug)}">Consultar por WhatsApp</a>` : ''}
     </aside>

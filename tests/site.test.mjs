@@ -386,11 +386,13 @@ function outboundLinks(src) {
   return tags(src, 'a').map((a) => attr(a, 'href') || '').filter((h) => /vercel|onrender|github/.test(h)).length;
 }
 
-test('Nexa: demo y captura real tomadas del portfolio, sin cuenta ni repositorio', () => {
+test('Nexa: demo y capturas reales, con los repositorios de frontend y backend, sin cuenta de prueba', () => {
   const p = projects.find((x) => x.slug === 'nexa');
   const src = html['proyectos/nexa.html'];
   assert.equal(p.demo, 'https://lorenestudiodebelleza.vercel.app/'); assert.ok(src.includes(p.demo));
-  assert.ok(p.images.length >= 1 && !p.repo && !p.demoAccount && !p.demoNote, 'Nexa no lleva nota de demo');
+  assert.ok(p.images.length >= 1 && !p.demoAccount && !p.demoNote, 'Nexa no lleva nota de demo');
+  assert.deepEqual(p.repos.map((r) => r.url), ['https://github.com/emilykohler12/nexa-frontend', 'https://github.com/emilykohler12/nexa-backend']);
+  for (const r of p.repos) assert.ok(src.includes(r.url) && text(src).includes(r.text), r.url);
   assert.ok(!text(src).includes('Demo pública de un estudio de belleza'));
   assert.ok(src.includes('Mercado Pago'));
 });
