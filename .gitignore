@@ -9,5 +9,7 @@ site/
 *.key
 # Informe interno con datos personales y riesgos de sistemas de clientes: solo local (el repo es público)
 CRITICA.md
+# Prospectos y borradores de mensajes: datos de terceros, solo local
+prospectos/
 # Videos de Syntri: pospuestos, se publican más adelante
 videos-pendientes-de-revisar/

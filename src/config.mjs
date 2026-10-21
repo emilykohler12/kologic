@@ -4,8 +4,8 @@ export const config = {
   name: 'Kologic',
   tagline: 'Innovación tecnológica con un toque humano',
   // Dominio final (se usa en canonical, sitemap y Open Graph). Cambiar cuando esté registrado.
-  // PROVISORIO: todavía no hay dominio propio. Poné acá la dirección real donde publiques el sitio.
-  siteUrl: 'https://kologic.vercel.app',
+  // PROVISORIO: todavía no hay dominio propio; hoy es la dirección de Cloudflare (workers.dev). Reemplazar por el dominio al registrarlo.
+  siteUrl: 'https://kologic.kologic6.workers.dev',
   email: 'kologic6@gmail.com',
   // WhatsApp en formato internacional sin "+" ni espacios. Argentina móvil: 549 + código de área + número.
   // Ej: '5491112345678'. Vacío = se ocultan los botones de WhatsApp.

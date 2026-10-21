@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kologic",
+  "compatibility_date": "2026-10-19",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "site",
+    // Las URLs del sitemap y los canonical llevan ".html": no redirigir a versiones sin extensión.
+    "html_handling": "none",
+    // Sirve site/404.html para rutas inexistentes.
+    "not_found_handling": "404-page"
+  }
+}

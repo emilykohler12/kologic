@@ -167,7 +167,7 @@ ${contactSection()}
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
   ];
   return layout({
-    title: 'Kologic | Desarrollo de sistemas web y soluciones digitales a medida',
+    title: 'Kologic | Sistemas web y soluciones digitales a medida',
     description: 'Desarrollamos soluciones digitales a medida para tu negocio: sistemas web, páginas, tiendas online y automatizaciones.',
     path: '/',
     home: true,
@@ -261,7 +261,7 @@ export function projectPage(p) {
     ],
   }];
   return layout({
-    title: `${p.name} | Kologic`,
+    title: `${p.name.length > 50 && p.shortName ? p.shortName : p.name} | Kologic`,
     description: `${p.short} Funcionalidades y tecnologías.`,
     path: `/proyectos/${p.slug}.html`,
     root: '../',

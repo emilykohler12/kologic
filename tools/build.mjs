@@ -80,7 +80,7 @@ const todo = [
   [!config.formEndpoint, 'formEndpoint vacío: el formulario abre el correo del usuario (mailto) en vez de enviarse solo.'],
   [!config.plausibleDomain, 'plausibleDomain vacío: no hay analítica de visitas.'],
   [!config.linkedin, 'LinkedIn vacío: no se muestra el enlace.'],
-  [/kologic\.(vercel\.app|com)$/.test(config.siteUrl), `siteUrl (${config.siteUrl}) es provisorio: ponelo igual a la dirección real donde publiques.`],
+  [/(vercel\.app|workers\.dev|pages\.dev)$/.test(config.siteUrl), `siteUrl (${config.siteUrl}) es provisorio: ponelo igual a la dirección real donde publiques.`],
   [projects.some((p) => !p.demo), `Sin demo: ${projects.filter((p) => !p.demo).length} proyectos muestran "Pedir acceso a la demo".`],
 ];
 console.log(`Sitio generado en ./site (${urls.length + 1} páginas).`);
