@@ -74,6 +74,9 @@ write('_headers', `/*
   Cache-Control: public, max-age=31536000, immutable
 `);
 
+// Con html_handling "none" (wrangler.jsonc) la raíz "/" no sirve index.html sola: se reescribe.
+write('_redirects', '/ /index.html 200\n');
+
 // Avisos de configuración pendiente
 const todo = [
   [!config.whatsapp, 'WhatsApp vacío: se ocultan los botones de WhatsApp (config.whatsapp).'],
