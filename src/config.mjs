@@ -19,6 +19,8 @@ export const config = {
   formEndpoint: 'https://formspree.io/f/xyekognb',
   // Analítica sin cookies (Plausible). Vacío = no se carga ninguna analítica.
   plausibleDomain: '',
+  // Verificación de Google Search Console (etiqueta meta en la home). No quitar: si no, se pierde la verificación.
+  googleSiteVerification: '3mY-qYUiNLV325oObzA5eHF0HqoBEeRkB_5bJKEyZYs',
   year: 2026,
   locale: 'es-AR',
 };
